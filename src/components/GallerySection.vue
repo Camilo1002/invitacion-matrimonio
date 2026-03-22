@@ -9,17 +9,24 @@ import 'swiper/css/effect-creative'
 const isVisible = ref(false)
 
 const photos = [
+  { year: '2015', image: '/images/2015.jpeg' },
   { year: '2016', image: '/images/2016.jpeg' },
+  { year: '2016', image: '/images/2016-2.jpeg' },
   { year: '2017', image: '/images/2017.jpeg' },
   { year: '2018', image: '/images/2018.jpeg' },
   { year: '2019', image: '/images/2019.jpeg' },
   { year: '2019', image: '/images/2019-2.jpeg' },
   { year: '2022', image: '/images/2022.jpeg' },
   { year: '2023', image: '/images/2023.jpeg' },
+  { year: '2023', image: '/images/2023-2.jpeg' },
   { year: '2024', image: '/images/2024.jpeg' },
   { year: '2024', image: '/images/2024-2.jpeg' },
+  { year: '2024', image: '/images/2024-3.jpeg' },
+  { year: '2024', image: '/images/2024-4.jpeg' },
   { year: '2025', image: '/images/2025.jpeg' },
-  { year: '2025', image: '/images/2025-2.jpeg' }
+  { year: '2025', image: '/images/2025-2.jpeg' },
+  { year: '2025', image: '/images/2025-3.jpeg' },
+  { year: '2025', image: '/images/2025-4.jpeg' }
 ]
 
 const modules = [Autoplay, EffectCreative]

@@ -126,8 +126,18 @@ const saveToFirebase = async () => {
 </script>
 
 <template>
-  <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-stone-50 to-amber-50 py-20 px-6">
-    <div class="w-full max-w-4xl mx-auto flex flex-col items-center gap-12 md:gap-16">
+  <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-stone-50 to-amber-50 py-20 px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/3.jpeg"
+        alt="Fondo"
+        class="w-full h-full object-cover opacity-50"
+      />
+    </div>
+
+    <div class="absolute inset-0 z-1 bg-gradient-to-br from-slate-50/50 via-stone-50/45 to-amber-50/50"></div>
+
+    <div class="w-full max-w-4xl mx-auto flex flex-col items-center gap-12 md:gap-16 relative z-10">
     <div class="relative z-10 w-full text-center">
       <div class="absolute inset-0 border-2 border-slate-300/40 rounded-lg"></div>
       <div class="absolute -inset-2 border border-slate-200/30 rounded-xl"></div>
