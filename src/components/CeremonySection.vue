@@ -62,6 +62,16 @@ const scrollToNext = () => {
 
 <template>
   <section ref="sectionRef" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-stone-900 py-20 px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/4.jpeg"
+        alt="Fondo"
+        class="w-full h-full object-cover opacity-30"
+      />
+    </div>
+
+    <div class="absolute inset-0 z-1 bg-gradient-to-br from-slate-900/70 via-slate-800/65 to-stone-900/70"></div>
+
     <div class="relative z-10 max-w-4xl mx-auto">
       <Motion
         v-if="isVisible"

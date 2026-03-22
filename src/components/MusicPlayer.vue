@@ -66,7 +66,7 @@ onMounted(() => {
       loop
       preload="auto"
     >
-      <source src="/music/hoy.mp3" type="audio/mpeg">
+      <source src="/music/corazon.mp3" type="audio/mpeg">
     </audio>
   </div>
 </template>

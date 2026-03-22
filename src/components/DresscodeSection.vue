@@ -8,7 +8,8 @@ const isVisible = ref(false)
 const showModal = ref(false)
 const formData = ref({
   nombre: '',
-  cantidad: 1
+  celular: '',
+  acompanantes: 0
 })
 const isSubmitting = ref(false)
 const submitMessage = ref('')
@@ -89,7 +90,7 @@ const openModal = () => {
 
 const closeModal = () => {
   showModal.value = false
-  formData.value = { nombre: '', cantidad: 1 }
+  formData.value = { nombre: '', celular: '', acompanantes: 0 }
   submitMessage.value = ''
 }
 
@@ -102,7 +103,9 @@ const saveToFirebase = async () => {
   try {
     await addDoc(collection(db, 'confirmaciones'), {
       nombre: formData.value.nombre,
-      cantidad: formData.value.cantidad,
+      celular: formData.value.celular,
+      acompanantes: formData.value.acompanantes,
+      totalPersonas: 1 + formData.value.acompanantes,
       fecha: new Date().toISOString(),
       timestamp: Date.now()
     })
@@ -353,22 +356,43 @@ const saveToFirebase = async () => {
                 required
                 :disabled="isSubmitting"
                 class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-400 focus:border-transparent outline-none transition-all disabled:bg-slate-100 disabled:cursor-not-allowed"
-                placeholder="Tu nombre"
+                placeholder="Tu nombre completo"
               />
             </div>
 
             <div>
-              <label for="cantidad" class="block text-sm font-medium text-slate-700 mb-2">Cantidad de personas</label>
+              <label for="celular" class="block text-sm font-medium text-slate-700 mb-2">Celular</label>
               <input
-                id="cantidad"
-                v-model.number="formData.cantidad"
-                type="number"
-                min="1"
-                max="10"
+                id="celular"
+                v-model="formData.celular"
+                type="tel"
                 required
                 :disabled="isSubmitting"
                 class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-400 focus:border-transparent outline-none transition-all disabled:bg-slate-100 disabled:cursor-not-allowed"
+                placeholder="Número de celular"
               />
+            </div>
+
+            <div>
+              <label for="acompanantes" class="block text-sm font-medium text-slate-700 mb-2">Acompañantes</label>
+              <select
+                id="acompanantes"
+                v-model.number="formData.acompanantes"
+                :disabled="isSubmitting"
+                class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-400 focus:border-transparent outline-none transition-all disabled:bg-slate-100 disabled:cursor-not-allowed bg-white"
+              >
+                <option :value="0">0 - Sin acompañantes</option>
+                <option :value="1">1 acompañante</option>
+                <option :value="2">2 acompañantes</option>
+                <option :value="3">3 acompañantes</option>
+                <option :value="4">4 acompañantes</option>
+                <option :value="5">5 acompañantes</option>
+                <option :value="6">6 acompañantes</option>
+                <option :value="7">7 acompañantes</option>
+                <option :value="8">8 acompañantes</option>
+                <option :value="9">9 acompañantes</option>
+                <option :value="10">10 acompañantes</option>
+              </select>
             </div>
 
             <div v-if="submitMessage" class="p-3 rounded-lg text-sm text-center" :class="submitMessage.includes('error') ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700'">
