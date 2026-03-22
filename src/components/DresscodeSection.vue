@@ -384,14 +384,6 @@ const saveToFirebase = async () => {
                 <option :value="0">0 - Sin acompañantes</option>
                 <option :value="1">1 acompañante</option>
                 <option :value="2">2 acompañantes</option>
-                <option :value="3">3 acompañantes</option>
-                <option :value="4">4 acompañantes</option>
-                <option :value="5">5 acompañantes</option>
-                <option :value="6">6 acompañantes</option>
-                <option :value="7">7 acompañantes</option>
-                <option :value="8">8 acompañantes</option>
-                <option :value="9">9 acompañantes</option>
-                <option :value="10">10 acompañantes</option>
               </select>
             </div>
 

@@ -17,6 +17,8 @@ const photos = [
   { year: '2019', image: '/images/2019.jpeg' },
   { year: '2019', image: '/images/2019-2.jpeg' },
   { year: '2022', image: '/images/2022.jpeg' },
+  { year: '2022', image: '/images/2022-2.jpeg' },
+  { year: '2022', image: '/images/2022-3.jpeg' },
   { year: '2023', image: '/images/2023.jpeg' },
   { year: '2023', image: '/images/2023-2.jpeg' },
   { year: '2024', image: '/images/2024.jpeg' },
