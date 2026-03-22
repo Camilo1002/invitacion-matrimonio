@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Variables
+$primary-color: #f43f5e;
+$secondary-color: #ec4899;
+$accent-color: #a855f7;
+$text-dark: #1f2937;
+$text-light: #6b7280;
+$bg-light: #fef2f2;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+@mixin gradient-bg($from, $to) {
+  background: linear-gradient(135deg, $from 0%, $to 100%);
+}
+
+// Animaciones personalizadas
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+// Clases de utilidad personalizadas
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+// Estilos base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Estilos de tipografía
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+// Efectos de gradiente
+.gradient-rose {
+  @include gradient-bg(#fda4af, #fb7185);
+}
+
+.gradient-pink {
+  @include gradient-bg(#f9a8d4, #f472b6);
+}
+
+.gradient-purple {
+  @include gradient-bg(#d8b4fe, #c084fc);
+}
+
+// Efectos de sombra
+.shadow-elegant {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+// Botones personalizados
+.btn-primary {
+  @include flex-center;
+  @include transition;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(244, 63, 94, 0.3);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Contenedores
+.container-center {
+  @include flex-center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+// Efectos de fondo
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  filter: blur(40px);
+  opacity: 0.7;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .container-center {
+    padding: 2rem 1rem;
+  }
+}
